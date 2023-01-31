@@ -11,9 +11,11 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
+
 app.get('/', (req, res) => {
   res.send('sup');
 });
+
 
 app.listen(port, (err) => {
   err ? console.warn(err) : console.log(`app.js is running on port ${port}`);
