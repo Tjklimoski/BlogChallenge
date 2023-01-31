@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "blogchallengev1",
   "version": "1.0.0",
   "description": "Blog Challenge for the udemy web dev bootcamp",
