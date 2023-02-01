@@ -6,6 +6,7 @@
 
 html {
   --accent-color: #ff970e;
+  overflow-x: hidden;
 }
 
 #main {
@@ -44,4 +45,22 @@ html {
 .footer p {
   margin-top: 2em;
   color: #fff;
+}
+
+/* Style for form elements on compose.ejs */
+
+button {
+  padding: .2rem;
+  border: 1px solid darkgray;
+}
+
+input {
+  padding: .2rem;
+  border: 1px solid darkgray;
+}
+
+input:focus {
+  box-shadow: inset 0 0 10px -5px var(--accent-color);
+  background-color: white;
+  outline: 0;
 }

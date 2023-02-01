@@ -31,6 +31,11 @@ app.get('/contact', (req, res) => {
 });
 
 
+app.get('/compose', (req, res) => {
+  res.render('compose');
+});
+
+
 app.listen(port, err => {
   err ? console.warn(err) : console.log(`app.js is running on port ${port}`);
 })
