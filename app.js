@@ -11,12 +11,15 @@ const homeContent = 'This is starting content for home.';
 const aboutContent = 'This is content for about.';
 const contactContent = 'This is content for the contact page.'
 
+const posts = [];
+
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 
 app.get('/', (req, res) => {
+  console.log(posts);
   res.render('home', {content: homeContent} );
 });
 
@@ -41,7 +44,11 @@ app.post('/compose', (req, res) => {
     title: req.body.postTitle,
     content: req.body.postContent
   }
-  console.log(post);
+
+  posts.push(post);
+
+  res.redirect('/');
+  
 });
 
 
