@@ -50,8 +50,14 @@ app.post('/compose', (req, res) => {
 });
 
 
-app.get('/posts/:post', (req, res) => {
-  console.log(req.params.post);
+app.get('/posts/:postName', (req, res) => {
+  posts.forEach( post => {
+    if (post.title === req.params.postName) {
+      console.log('Match found!');
+    } else {
+      res.send(`No blog post title matched ${req.params.postName}`);
+    }
+  });
 });
 
 
