@@ -21,6 +21,16 @@ app.get('/', (req, res) => {
 });
 
 
+app.get('/about', (req, res) => {
+  res.render('about', {content: aboutContent});
+});
+
+
+app.get('/contact', (req, res) => {
+  res.render('contact', {content: contactContent});
+});
+
+
 app.listen(port, err => {
   err ? console.warn(err) : console.log(`app.js is running on port ${port}`);
 })
