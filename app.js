@@ -36,6 +36,11 @@ app.get('/compose', (req, res) => {
 });
 
 
+app.post('/compose', (req, res) => {
+  console.log(req.body.blogPost);
+});
+
+
 app.listen(port, err => {
   err ? console.warn(err) : console.log(`app.js is running on port ${port}`);
 })
