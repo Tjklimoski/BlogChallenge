@@ -4,4 +4,15 @@
 
 <p><%= content %></p>
 
+<% posts.forEach(post => { %>
+  <div class="post">
+    <h2 class="title">
+      <%= post.title %>
+    </h2>
+    <div class="content">
+      <%= post.content %>
+    </div>
+  </div>
+<% }); %>
+
 <%- include('partials/footer'); -%>

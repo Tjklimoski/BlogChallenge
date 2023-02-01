@@ -67,3 +67,9 @@ html {
 .form-group {
   margin-block: 1rem;
 }
+
+/* Style for blog posts */
+
+.post {
+  margin-block: 2rem;
+}
