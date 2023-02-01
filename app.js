@@ -38,11 +38,6 @@ app.get('/compose', (req, res) => {
 });
 
 
-app.get('/posts/:post', (req, res) => {
-  console.log(req.params.post);
-});
-
-
 app.post('/compose', (req, res) => {
   const post = {
     title: req.body.postTitle,
@@ -52,6 +47,11 @@ app.post('/compose', (req, res) => {
   posts.push(post);
 
   res.redirect('/');
+});
+
+
+app.get('/posts/:post', (req, res) => {
+  console.log(req.params.post);
 });
 
 
