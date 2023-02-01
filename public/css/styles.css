@@ -10,12 +10,11 @@ html {
 }
 
 #main {
-  padding-top: 70px;
-  padding-bottom: 70px;
+  margin-block: 70px;
 }
 
 .container-fluid {
-  margin-inline: 2.5rem;
+  padding-inline: 15%;
 }
 
 .navbar {
@@ -44,23 +43,27 @@ html {
 
 .footer p {
   margin-top: 2em;
-  color: #fff;
+  color: #eee;
 }
 
 /* Style for form elements on compose.ejs */
 
-button {
-  padding: .2rem;
-  border: 1px solid darkgray;
+.post-form button {
+  background-color: var(--accent-color);
+  color: #eee;
 }
 
-input {
-  padding: .2rem;
-  border: 1px solid darkgray;
+.post-form button:hover {
+  background-color: #ffbc64;
+  color: #eee;
 }
 
-input:focus {
-  box-shadow: inset 0 0 10px -5px var(--accent-color);
-  background-color: white;
+.post-form input:focus,
+.post-form textarea:focus {
+  box-shadow: inset 0 0 3px 0px var(--accent-color);
   outline: 0;
+}
+
+.form-group {
+  margin-block: 1rem;
 }
