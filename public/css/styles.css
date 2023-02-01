@@ -11,6 +11,9 @@ html {
 #main {
   padding-top: 70px;
   padding-bottom: 70px;
+}
+
+.container-fluid {
   margin-inline: 2.5rem;
 }
 
