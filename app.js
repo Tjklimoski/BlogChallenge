@@ -1,6 +1,7 @@
 import express from 'express';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import _ from 'lodash';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -52,10 +53,11 @@ app.post('/compose', (req, res) => {
 
 app.get('/posts/:postName', (req, res) => {
   posts.forEach( post => {
-    if (post.title === req.params.postName) {
-      console.log('Match found!');
-    } else {
-      res.send(`No blog post title matched ${req.params.postName}`);
+    const requestedTitle = _.lowerCase(req.params.postName);
+    const postTitle = _.lowerCase(post.title);
+
+    if (postTitle === requestedTitle) {
+      res.render('post', {postTitle: post.title, postContent: post.content})
     }
   });
 });
