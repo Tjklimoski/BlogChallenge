@@ -22,4 +22,4 @@ function getDay() {
   return date.toLocaleDateString(undefined, options);
 }
 
-export { dateAsString as getDate, getDay, dateAsString as default };
+export { dateAsString as getDate };
