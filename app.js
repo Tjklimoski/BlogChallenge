@@ -15,7 +15,7 @@ const homeContent = 'This is starting content for home.';
 const aboutContent = 'This is content for about.';
 const contactContent = 'This is content for the contact page.'
 
-const blogDB = mongoose.createConnection(`mongodb+srv://admin-tjk:${auth.mongodb}@learning.pp2n17d.mongodb.net/blogDB`);
+const blogDB = mongoose.createConnection(`mongodb+srv://admin-tjk:${auth.mongodb}@learning.pp2n17d.mongodb.net/blogDB?retryWrites=true&w=majority`);
 
 const postSchema = new mongoose.Schema({
   title: {
@@ -34,6 +34,7 @@ app.use(express.static('public'));
 
 
 app.get('/', (req, res) => {
+  // send array of db documents, not posts
   res.render('home', {content: homeContent, posts: posts} );
 });
 
@@ -67,6 +68,7 @@ app.post('/compose', async (req, res) => {
 
 
 app.get('/posts/:postName', (req, res) => {
+  //loop through db, not posts
   posts.forEach( post => {
     const requestedTitle = _.lowerCase(req.params.postName);
     const postTitle = _.lowerCase(post.title);
