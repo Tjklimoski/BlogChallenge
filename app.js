@@ -26,8 +26,7 @@ const postSchema = new mongoose.Schema({
   content: String,
 });
 
-
-// const posts = [];
+const Post = mongoose.model('Post', postSchema);
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
