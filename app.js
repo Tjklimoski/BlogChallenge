@@ -35,7 +35,11 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
   // send array of db documents, not posts
   Post.find({}, null, {sort: {_id: -1}}, (err, docs) => {
-    res.render('home', {content: homeContent, posts: docs})
+    if (!err) {
+      res.render('home', {content: homeContent, posts: docs})
+    } else {
+      res.send('There was an error retrieving blog posts');
+    }
   })
 });
 
@@ -68,14 +72,14 @@ app.post('/compose', async (req, res) => {
 });
 
 
-app.get('/posts/:postName', (req, res) => {
-  //loop through db, not posts
-  posts.forEach( post => {
-    const requestedTitle = _.lowerCase(req.params.postName);
-    const postTitle = _.lowerCase(post.title);
+app.get('/posts/:postId', (req, res) => {
+  const postId = req.params.postId;
 
-    if (postTitle === requestedTitle) {
-      res.render('post', {postTitle: post.title, postContent: post.content});
+  Post.findOne({_id: postId}, (err, doc) => {
+    if (!err) {
+      res.render('post', {post: doc});
+    } else {
+      res.send(`No post with post id ${postId} found.`);
     }
   });
 });
