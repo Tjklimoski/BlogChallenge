@@ -32,9 +32,14 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
+const posts = [];
 
 app.get('/', (req, res) => {
   // send array of db documents, not posts
+  Post.find({}, null, {sort: {_id: -1}}, (err, docs) => {
+    
+  })
+
   res.render('home', {content: homeContent, posts: posts} );
 });
 
