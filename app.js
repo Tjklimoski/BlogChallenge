@@ -15,7 +15,7 @@ const homeContent = 'This is starting content for home.';
 const aboutContent = 'This is content for about.';
 const contactContent = 'This is content for the contact page.'
 
-const blogDB = mongoose.createConnection(`mongodb+srv://admin-tjk:${auth.mongodb}@learning.pp2n17d.mongodb.net/blogDB?retryWrites=true&w=majority`);
+const blogDB = mongoose.createConnection(`mongodb+srv://${auth.db_user}:${auth.db_pass}@learning.pp2n17d.mongodb.net/blogDB?retryWrites=true&w=majority`);
 
 const postSchema = new mongoose.Schema({
   title: {
