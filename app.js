@@ -2,6 +2,7 @@ import express from 'express';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import _ from 'lodash';
+import auth from './auth.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
