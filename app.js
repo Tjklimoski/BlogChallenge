@@ -3,6 +3,7 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import _ from 'lodash';
 import auth from './auth.js';
+import mongoose from 'mongoose';
 
 const app = express();
 const port = process.env.PORT || 3000;
