@@ -54,13 +54,13 @@ app.get('/compose', (req, res) => {
 
 
 app.post('/compose', (req, res) => {
-  const post = {
+  const newPost = new Post({
     title: req.body.postTitle,
-    content: req.body.postContent,
-    url: _.kebabCase(_.lowerCase(req.body.postTitle))
-  }
+    date: getDate(),
+    content: req.body.postContent
+  });
 
-  posts.push(post);
+  newPost.save();
 
   res.redirect('/');
 });
